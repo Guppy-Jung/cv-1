@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,viewport-fit=cover">
+    <!-- 用taobao的meta vp设置，可以防止用户双指放大屏幕 -->
+    <title>蒋国坪的简历</title>
+</head>
+
+<body>
+    <style id="style"></style>
+    <div id="html"></div>
+    <div id="div1Wrapper">
+        <div id="div1"></div>
+    </div>
+    <style>
+        * {
+            margin: 0;
+            /*不要忘记重置页面，否则body会默认有边距*/
+            padding: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        ::before {
+            /*在reset CSS时，伪元素也要单独reset*/
+            box-sizing: border-box;
+        }
+
+        ::after {
+            box-sizing: border-box;
+        }
+
+        #demo {
+            word-break: break-all;
+            /*页面中超过分辨率宽度的内容会自动换行*/
+        }
+
+        #div1 {
+            position: fixed;
+            /* top: 0;
+            right: 0; */
+            left: 50%;
+            transform: translateX(-50%);
+            top: 20px;
+        }
+
+        #div1::before {
+            /*表示在该元素的第一个子元素加上1，因为这个元素是在css中生成的，所以是伪元素*/
+            content: '';
+            /*content不能删，因为伪元素是span元素*/
+            display: block;
+            position: absolute;
+        }
+
+        #div1::after {
+            content: '';
+            display: block;
+            position: absolute;
+        }
+
+        @media (max-width:500px) {
+
+            /*@media通过查询设备分辨率宽度来设置样式，媒体查询的语法就是if,else*/
+            #html {
+                height: 50vh;
+                overflow: auto;
+            }
+
+            #div1Wrapper {
+                height: 50vh;
+            }
+
+            #div1 {
+                position: relative;
+                /*这个定位设置会覆盖掉前面的*/
+                /* top: 0;
+                right: 0; */
+                transform: translate(50%, 50%);
+            }
+        }
+    </style>
+    <script src="main.js"></script>
+</body>
+
+</html>
